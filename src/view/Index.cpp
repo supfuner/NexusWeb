@@ -20,8 +20,7 @@ void Index::show(const Request & req, Response & resp)
     user.elements["name"] = "John";
     user.data["fruits"] = { "Apple", "Banana", "Orange" };
     user.data["V"] = { "Q", "W", "E" };
-    std::string output = Render::render(user, "/home/user/wrok_space/PISCO_demo/NexusWeb/www/html/index.html");
-    std::this_thread::sleep_for(std::chrono::seconds(60));
+    std::string output = Render::render(user, "/home/user/wrok_space/NexusWeb/www/html/index.html");
     resp.html(output);
 }
 

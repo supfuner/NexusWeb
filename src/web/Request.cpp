@@ -109,7 +109,7 @@ bool Request::parse(const char * buf, int len)
     m_body = string(s);
     if (header("Content-Type") == "application/json")
     {
-        //m_post.parse(m_body);
+        //CreateJsonParser(m_post, m_body
     }
     return true;
 }
@@ -198,7 +198,7 @@ void Request::show() const
     }
     LOG_DEBUG("http get params -- end");
     LOG_DEBUG("http post params -- start");
-    //LOG_DEBUG("http post %s", m_post.str().c_str());
+    //LOG_DEBUG("http post {}", m_post.str().c_str());
     LOG_DEBUG("http post params -- end");
     LOG_DEBUG("http body: {}", m_body.c_str());
 }

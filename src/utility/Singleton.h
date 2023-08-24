@@ -8,18 +8,19 @@ template <typename T>
 class Singleton
 {
 public:
-    static T * instance()
+    ~Singleton() {};
+    Singleton<T> & operator = (const Singleton<T> &) = delete;
+    static T & instance()
     {
-        if (m_instance == NULL)
-            m_instance = new T();
+        static T m_instance;
+        // if (m_instance == NULL)
+        //     m_instance = new T();
         return m_instance;
     }
 
 private:
     Singleton() {}
     Singleton(const Singleton<T> &);
-    Singleton<T> & operator = (const Singleton<T> &);
-    ~Singleton() {}
 
 private:
     static T * m_instance;

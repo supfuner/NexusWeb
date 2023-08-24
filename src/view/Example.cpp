@@ -16,6 +16,12 @@ Example::~Example()
 
 void Example::TestAjax(const Request & req, Response & resp)
 {
-    std::string output = Render::render("/home/user/wrok_space/PISCO_demo/NexusWeb/www/html/ajax.html");
+    std::cout<<"Get Param:" << req.get("name") << std::endl;
+    UserData user;
+    user.elements["name"] = "John";
+    user.data["fruits"] = { "Apple", "Banana", "Orange" };
+    user.data["V"] = { "Q", "W", "E" };
+
+    std::string output = Render::render(user, "/home/user/wrok_space/NexusWeb/www/html/ajax.html");
     resp.html(output);
 }

@@ -19,10 +19,18 @@ void HttpTask::run()
     Socket * socket = static_cast<Socket *>(m_data_);
     char buffer[kRecvBufferSize] = {0};
     int len = socket->recv(buffer, kRecvBufferSize);
-    Request req;
-    req.parse(buffer, len);
-    string output = Singleton<Server>::instance()->Handle(req);
-    socket->send(output.c_str(), output.size());
-    Singleton<SocketHandler>::instance()->attach(socket);
+    if (len > 0)
+    {
+        LOG_DEBUG("len :{}, data:{}", len, buffer);
+        Request req;
+        req.parse(buffer, len);
+        string output = Singleton<Server>::instance().Handle(req);
+        socket->send(output.c_str(), output.size());
+        Singleton<SocketHandler>::instance().attach(socket);
+    }
+    else
+    {
+        Singleton<SocketHandler>::instance().remove(socket);
+    }
     // 模拟任务执行时间    
 }

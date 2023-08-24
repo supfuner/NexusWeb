@@ -23,8 +23,6 @@ public:
     void Bind(const string & path, server_handler handler);
     string Handle(const Request & req);
     void test();
-
-private:
     Server();
     ~Server();
     

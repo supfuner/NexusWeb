@@ -127,5 +127,5 @@ string Response::test_json() const
     os << "Content-Type: application/json; charset: utf-8\r\n";
     os << "Content-Length: " << mm.size() << "\r\n\r\n";
     os << mm << "\r\n";
-return os.str();
+    return os.str();
 }

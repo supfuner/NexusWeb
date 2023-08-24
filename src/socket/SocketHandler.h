@@ -30,7 +30,7 @@ private:
     EventPoller * m_epoll;
     Socket * m_server;
     ObjectPool<Socket> m_sockpool;
-    //Mutex m_mutex;
+    std::mutex m_mutex;
 };
 }
 }

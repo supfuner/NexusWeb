@@ -1,7 +1,0 @@
-/home/user/wrok_space/PISCO_demo/NexusWeb/build/CMakeFiles/install/strip.dir
-/home/user/wrok_space/PISCO_demo/NexusWeb/build/CMakeFiles/install/local.dir
-/home/user/wrok_space/PISCO_demo/NexusWeb/build/CMakeFiles/install.dir
-/home/user/wrok_space/PISCO_demo/NexusWeb/build/CMakeFiles/list_install_components.dir
-/home/user/wrok_space/PISCO_demo/NexusWeb/build/CMakeFiles/rebuild_cache.dir
-/home/user/wrok_space/PISCO_demo/NexusWeb/build/CMakeFiles/edit_cache.dir
-/home/user/wrok_space/PISCO_demo/NexusWeb/build/CMakeFiles/NexusWeb.dir

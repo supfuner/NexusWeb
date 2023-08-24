@@ -2,6 +2,7 @@
 
 #include <string>
 #include <map>
+#include "../utility/Json.h"
 using namespace std;
 
 
@@ -20,7 +21,6 @@ public:
     bool is_post() const;
 
     string get(const string & name) const;
-    //Json post(const string & name = "") const;
     string header(const string & name) const;
     string cookie(const string & name) const;
     string path() const;
@@ -37,7 +37,6 @@ private:
     string m_body;
     string m_query_string;
     std::map<string, string> m_get;
-    //Json m_post;
     std::map<string, string> m_headers;
     std::map<string, string> m_cookies;
 };

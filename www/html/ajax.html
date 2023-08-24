@@ -2,17 +2,18 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>动态页面更新示例</title>
+  <title>demo</title>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> <!-- 引入 jQuery 库 -->
 </head>
 <body>
-  <h1>动态页面更新示例</h1>
-
-  <div id="data-container">
-    <!-- 这里显示后台返回的数据 -->
-  </div>
-
-  <button id="update-btn">点击更新数据</button>
+  <h1>demo</h1>
+  <p id="data-container"></p>
+  <li><font color="red">请求下发： </font><button id="update-btn">点击更新数据</button></li>
+  <li><font color="red">变量替换： </font>Hello, {{name}}!</li>
+  <li><font color="red">循环变量： </font>{%- for fruit in fruits -%}[{{fruit}}]-{%- endfor -%}</li>
+  <li><font color="red">请求下发： </font></li>
+  <li><font color="red">请求下发： </font></li>
+  <li></li>
 
   <script>
     // 当按钮点击时触发事件
@@ -20,7 +21,7 @@
       // 发送异步请求到后台获取数据
       $.ajax({
         url: 'Counter',  // 替换为后台数据接口的实际URL
-        type: 'GET',  // 根据实际情况选择请求类型
+        type: 'GET',     // 根据实际情况选择请求类型
         success: function(data) {
           // 请求成功的回调函数
           // 根据后台返回的数据，对页面进行更新操作

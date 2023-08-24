@@ -37,5 +37,15 @@ bool Thread::set_thread_Name(const std::string &name)
 }
 
 std::string Thread::get_thread_name() {
-    return _GetThreadName(m_thread.native_handle());
+    // try
+    // {
+    //     return _GetThreadName(m_thread.native_handle());
+    // }
+    // catch(const std::exception& e)
+    // {
+    //     std::cerr << e.what() << '\n';
+       
+    // }
+    return m_name;
+    
 }

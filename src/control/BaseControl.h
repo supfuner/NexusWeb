@@ -12,6 +12,7 @@ using namespace pisco::web;
 #include "Register.h"
 
 #include "../utility/Render.h"
+#include "../utility/Json.h"
 
 
 
@@ -36,7 +37,7 @@ template<typename R = void, typename ...Args>
 R BaseControl::exec(const string method, Args&... args)
 {
 
-    uintptr_t func = Singleton<ClassFactory>::instance()->GetMethod(m_class_name, method);
+    uintptr_t func = Singleton<ClassFactory>::instance().GetMethod(m_class_name, method);
     if(0 != func){
         std::function<R(decltype(this), Args&...)> * storeFunc = reinterpret_cast<std::function<R(decltype(this), Args&...)> *>(func);
         //std::cout<<"exec:"<<this<<"\tm_class_name:"<<m_class_name<<"\tmethod:"<<method<<"\n";

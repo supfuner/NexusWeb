@@ -34,8 +34,7 @@ void Server::Bind(const string & path, server_handler handler)
 
 void Server::Start()
 {
-    SocketHandler * socket_handler = pisco::utility::Singleton<SocketHandler>::instance();
-    socket_handler->listen(m_ip, m_port);
+    pisco::utility::Singleton<SocketHandler>::instance().listen(m_ip, m_port);
     LOG_INFO("************NexusWeb************");
     LOG_INFO("*Server:{} Port:{}", m_ip, m_port);
     LOG_INFO("*------------Route-------------*");
@@ -43,7 +42,7 @@ void Server::Start()
         LOG_INFO("*Path:{}, Control:{}*",iter->first,iter->second);
     } 
     LOG_INFO("*******************************");   
-    socket_handler->handle(1000, 10000);
+    pisco::utility::Singleton<SocketHandler>::instance().handle(1000, 10000);
 }
 
 string Server::Handle(const Request & req)
@@ -60,10 +59,9 @@ string Server::Handle(const Request & req)
     {   auto ctl = m_handlers.find(path);
         if(ctl != m_handlers.end())
         {
-            //class.method
             vector<string> output;
             SString::split(output, ctl->second, ".");
-            shared_ptr<BaseControl> b =  Singleton<ClassFactory>::instance()->CreateControl(output[0]);
+            shared_ptr<BaseControl> b =  Singleton<ClassFactory>::instance().CreateControl(output[0]);
             if (b != nullptr)
             {
                 b->exec(output[1], req, resp);
