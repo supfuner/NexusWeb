@@ -12,7 +12,7 @@ namespace view{
         Index(){};
         virtual ~Index() override;
         void show(const Request &, Response &);
-        void test();
+        void test(const Request & req, Response & resp);
     };
 }
 }

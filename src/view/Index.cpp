@@ -1,12 +1,12 @@
 #include "Index.h"
-
+#include "../utility/File.h"
 using namespace pisco::view;
 #include <iostream>
 #include <thread>
 
 REGISTER_CLASS(Index);
 REGISTER_CLASS_METHOD(Index, show, void, const Request &, Response &);
-REGISTER_CLASS_METHOD(Index, test, void);
+REGISTER_CLASS_METHOD(Index, test, void, const Request &, Response &);
 
 
 Index::~Index()
@@ -25,8 +25,10 @@ void Index::show(const Request & req, Response & resp)
 }
 
 
-void Index::test()
+void Index::test(const Request & req, Response & resp)
 {
-    std::cout<<"========test()\n";
+    std::string output;
+    pisco::utility::PFile::ReadFile("/home/user/wrok_space/NexusWeb/src/README.md", output);
+    resp.Image(output);
 }
 

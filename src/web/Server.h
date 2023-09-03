@@ -13,6 +13,34 @@ namespace web{
 
 typedef std::function<void(const Request &, Response &)> server_handler;
 
+struct CustomFinder {
+    std::string key;
+
+    CustomFinder(const std::string& k) : key(k) {}
+
+    bool operator() (const std::pair<std::string, server_handler>& pair) const {
+        int ret = false;
+        std::string pairKey = pair.first;
+        if (pairKey == key)
+        {
+            ret = true;
+        }
+        else if (pairKey.find("*") != std::string::npos && key.size() > 2)
+        {
+            auto pos = pairKey.find("*");
+            if (key.find(pairKey.substr(0, pos)) != std::string::npos)
+            {
+                ret = true;
+            }            
+        }
+        else
+        {
+            ret = false;
+        }
+        return ret;
+    }
+};
+
 class Server
 {
     friend class pisco::utility::Singleton<Server>;

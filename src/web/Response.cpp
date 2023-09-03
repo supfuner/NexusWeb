@@ -30,8 +30,27 @@ void Response::json(const string & data)
     m_data = data;
 }
 
+void Response::Image(const string & data)
+{
+    m_type = IMG;
+    m_data = data;
+}
+
+void Response::JavaScrip(const string & data)
+{
+    m_type = JS;
+    m_data = data;
+}
+
+void Response::Css(const string & data)
+{
+    m_type = CSS;
+    m_data = data;
+}
+
 string Response::data() const
 {
+    //Content-Type: application/octet-stream Transfer-Encoding: chunked
     ostringstream os;
     os << "HTTP/1.1 " << m_code << " OK\r\n";
     switch (m_type)
@@ -42,6 +61,15 @@ string Response::data() const
         case JSON:
             os << "Content-Type: application/json; charset: utf-8\r\n";
             break;
+        case IMG:
+            os << "Content-Type: image/png\r\n";
+            break;
+        case JS:
+            os << "Content-Type: text/javascript; Transfer-Encoding: chunked;charset=utf-8\r\n";
+            break;
+        case CSS:
+            os << "Content-Type: text/css; Transfer-Encoding: chunked; charset=utf-8\r\n";
+            break;            
         default:
             break;
     }

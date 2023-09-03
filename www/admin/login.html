@@ -1,62 +1,60 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="zh-cn">
 <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <title> - 登录</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-
-    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
-
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/style.css?v=4.1.0" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <meta http-equiv="refresh" content="0;ie.html" />
-    <![endif]-->
-    <script>if(window.top !== window.self){ window.top.location = window.location;}</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title>NexusWeb后台管理-管理员登录</title>
+    <link rel="stylesheet" href="/www/static/admin/css/pintuer.css">
+    <link rel="stylesheet" href="/www/static/admin/css/admin.css">
+    <script src="/www/static/admin/js/jquery.js"></script>
+    <script src="/www/static/admin/js/pintuer.js"></script>
+    <script src="/www/static/admin/js/respond.js"></script>
+    <script src="/www/static/admin/js/admin.js"></script>
+    <link type="image/x-icon" href="/favicon.ico" rel="shortcut icon" />
+    <link href="/favicon.ico" rel="bookmark icon" />
 </head>
 
-<body class="gray-bg">
-
-    <div class="middle-box text-center loginscreen  animated fadeInDown">
-        <div>
-            <div>
-
-                <h1 class="logo-name">h</h1>
-
+<body>
+<div class="container">
+    <div class="line">
+        <div class="xs6 xm4 xs3-move xm4-move">
+            <br /><br />
+            <div class="media media-y">
+                <a href="#" target="_blank"><img src="/www/static/admin/images/logo.png" width="100" height="100" class="radius" alt="后台管理系统" /></a>
             </div>
-            <h3>欢迎使用 hAdmin</h3>
-
-            <form class="m-t" role="form" action="index.html">
-                <div class="form-group">
-                    <input type="email" class="form-control" placeholder="用户名" required="">
+            <br /><br />
+            <form action="admin/index" method="post">
+            <div class="panel">
+                <div class="panel-head"><strong>登录NexusWeb后台管理系统</strong></div>
+                <div class="panel-body" style="padding:30px;">
+                    <div class="form-group">
+                        <div class="field field-icon-right">
+                            <input type="text" class="input" name="admin" placeholder="登录账号" data-validate="required:请填写账号,length#>=5:账号长度不符合要求" />
+                            <span class="icon icon-user"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="field field-icon-right">
+                            <input type="password" class="input" name="password" placeholder="登录密码" data-validate="required:请填写密码,length#>=8:密码长度不符合要求" />
+                            <span class="icon icon-key"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="field">
+                            <input type="text" class="input" name="passcode" placeholder="填写右侧的验证码" data-validate="required:请填写右侧的验证码" />
+                            <img src="" width="80" height="32" class="passcode" />
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" placeholder="密码" required="">
-                </div>
-                <button type="submit" class="btn btn-primary block full-width m-b">登 录</button>
-
-
-                <p class="text-muted text-center"> <a href="login.html#"><small>忘记密码了？</small></a> | <a href="register.html">注册一个新账号</a>
-                </p>
-
+                <div class="panel-foot text-center"><button class="button button-block bg-main text-big">立即登录后台</button></div>
+            </div>
             </form>
+            <div class="text-right text-small text-gray padding-top">基于<a class="text-gray" target="_blank" href="#">NexusWeb前端框架</a>构建</div>
         </div>
     </div>
-
-    <!-- 全局js -->
-    <script src="js/jquery.min.js?v=2.1.4"></script>
-    <script src="js/bootstrap.min.js?v=3.3.6"></script>
-
-    
-    
+</div>
 
 </body>
-
 </html>

@@ -65,7 +65,7 @@ ThreadPool::ThreadPool(const size_t &threadCount)
     LOG_DEBUG("*******************************");
 
     m_manager = std::make_shared<Thread>(Manager, "Manager");
-    AddThreads(1);
+    AddThreads(5);
 }
 
 // 析构函数，等待所有线程完成任务后退出
@@ -156,7 +156,8 @@ void ThreadPool::ManageThreads()
     }
     m_busy_num = busyNum;
     int totalNum = m_threads.size();
-    if (m_tasks.size() <= idelVec.size())
+    int taskNum = m_tasks.size() ;
+    if (taskNum <= idelVec.size())
     {
         for (size_t i = 0; i < idelVec.size() && totalNum > m_core_thread_num; i++)
         {

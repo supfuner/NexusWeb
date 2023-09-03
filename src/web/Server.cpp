@@ -48,7 +48,9 @@ void Server::Start()
 string Server::Handle(const Request & req)
 {
     const string & path = req.path();
-    auto func = m_function_handlers.find(path);
+    CustomFinder finder(path);
+    auto func = std::find_if(m_function_handlers.begin(), m_function_handlers.end(), finder);
+    //auto func = m_function_handlers.find(path);
     Response resp;
     if(func != m_function_handlers.end()){
        

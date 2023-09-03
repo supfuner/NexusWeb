@@ -178,6 +178,11 @@ string Request::user_agent() const
     return header("User-Agent");
 }
 
+string Request::GetUri() const
+{
+    return m_uri;
+}
+
 void Request::show() const
 {
     LOG_DEBUG("http method: {}", m_method);

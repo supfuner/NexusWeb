@@ -6,6 +6,7 @@ using namespace pisco::web;
 
 void CounterTest(const Request & req, Response & resp);
 
+void StaticHandler(const Request & req, Response & resp);
 
 
 

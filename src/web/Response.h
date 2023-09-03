@@ -12,7 +12,10 @@ public:
     enum Type
     {
         HTML = 0,
-        JSON
+        JSON,
+        IMG,
+        JS,
+        CSS,
     };
 
     Response();
@@ -21,6 +24,10 @@ public:
     void code(int code);
     void html(const string & data);
     void json(const string & data);
+    void Image(const string & data);
+    void JavaScrip(const string & data);
+    void Css(const string & data);
+    
     string data() const;
     string page_not_found() const;
     string test_page() const;

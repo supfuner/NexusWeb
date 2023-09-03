@@ -4,5 +4,8 @@ urlpatterns = [
     path('/', Index.show),
     path('/articles/2003/', Index.show),
     path('/ajax', Example.TestAjax),
-    path('/admin',Admin.Index),
+    path('/admin',Admin.Login),
+    path('/admin/index',Admin.Index),
+    path('/admin/content',Admin.Content),
+    path('/admin/system',Admin.System),
 ]

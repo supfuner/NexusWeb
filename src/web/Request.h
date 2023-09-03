@@ -26,7 +26,7 @@ public:
     string path() const;
     string user_agent() const;
     string user_host() const;
-
+    string GetUri() const;
     void show() const;
 
 private:
